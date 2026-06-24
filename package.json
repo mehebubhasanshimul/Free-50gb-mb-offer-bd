@@ -1,0 +1,14 @@
+{
+  "name": "freemb-stealth",
+  "version": "1.0.0",
+  "description": "Security Testing - Phishing Simulation (Authorized Testing Only)",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod",
+    "start": "vercel start"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^34.0.0"
+  }
+}
